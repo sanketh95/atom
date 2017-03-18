@@ -75,8 +75,8 @@ module.exports = ({commandRegistry, commandInstaller, config, notificationManage
     'window:toggle-auto-indent': -> config.set("editor.autoIndent", not config.get("editor.autoIndent"))
     'pane:reopen-closed-item': -> @getModel().reopenItem()
     'core:close': -> @getModel().closeActivePaneItemOrEmptyPaneOrWindow()
-    'core:save': -> @getModel().saveActivePaneItem()
-    'core:save-as': -> @getModel().saveActivePaneItemAs()
+    'core:save': -> @getModel().saveFocusedPaneItem()
+    'core:save-as': -> @getModel().saveFocusedPaneItemAs()
 
   if process.platform is 'darwin'
     commandRegistry.add 'atom-workspace', 'window:install-shell-commands', ->
